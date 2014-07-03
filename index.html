@@ -5,28 +5,208 @@
 	<link rel="shortcut icon" href="favicon.ico" type="image/vnd.microsoft.ico"/>
 	<title>FamconBitmap</title>
 	<style>
+table {
+	border-collapse:collapse;
+	border:0px;
+	margin: 20px auto;
+}
+tr:nth-of-type(1) td:nth-of-type(1){ background-color: #000000;}
+tr:nth-of-type(1) td:nth-of-type(2){ background-color: #757575;}
+tr:nth-of-type(1) td:nth-of-type(3){ background-color: #BCBCBC;}
+tr:nth-of-type(1) td:nth-of-type(4){ background-color: #FFFFFF;}
+tr:nth-of-type(2) td:nth-of-type(1){ background-color: #271B8F;}
+tr:nth-of-type(2) td:nth-of-type(2){ background-color: #0073EF;}
+tr:nth-of-type(2) td:nth-of-type(3){ background-color: #3FBFFF;}
+tr:nth-of-type(2) td:nth-of-type(4){ background-color: #ABE7FF;}
+tr:nth-of-type(3) td:nth-of-type(1){ background-color: #0000AB;}
+tr:nth-of-type(3) td:nth-of-type(2){ background-color: #233BEF;}
+tr:nth-of-type(3) td:nth-of-type(3){ background-color: #5F73FF;}
+tr:nth-of-type(3) td:nth-of-type(4){ background-color: #C7D7FF;}
+tr:nth-of-type(4) td:nth-of-type(1){ background-color: #47009F;}
+tr:nth-of-type(4) td:nth-of-type(2){ background-color: #8300F3;}
+tr:nth-of-type(4) td:nth-of-type(3){ background-color: #A78BFD;}
+tr:nth-of-type(4) td:nth-of-type(4){ background-color: #D7CBFF;}
+tr:nth-of-type(5) td:nth-of-type(1){ background-color: #8F0077;}
+tr:nth-of-type(5) td:nth-of-type(2){ background-color: #BF00BF;}
+tr:nth-of-type(5) td:nth-of-type(3){ background-color: #F77BFF;}
+tr:nth-of-type(5) td:nth-of-type(4){ background-color: #FFC7FF;}
+tr:nth-of-type(6) td:nth-of-type(1){ background-color: #AB0013;}
+tr:nth-of-type(6) td:nth-of-type(2){ background-color: #E7005B;}
+tr:nth-of-type(6) td:nth-of-type(3){ background-color: #FF77B7;}
+tr:nth-of-type(6) td:nth-of-type(4){ background-color: #FFC7DB;}
+tr:nth-of-type(7) td:nth-of-type(1){ background-color: #A70000;}
+tr:nth-of-type(7) td:nth-of-type(2){ background-color: #DB2B00;}
+tr:nth-of-type(7) td:nth-of-type(3){ background-color: #FF7763;}
+tr:nth-of-type(7) td:nth-of-type(4){ background-color: #FFBFB3;}
+tr:nth-of-type(8) td:nth-of-type(1){ background-color: #7F0B00;}
+tr:nth-of-type(8) td:nth-of-type(2){ background-color: #CB4F0F;}
+tr:nth-of-type(8) td:nth-of-type(3){ background-color: #FF9B3B;}
+tr:nth-of-type(8) td:nth-of-type(4){ background-color: #FFDBAB;}
+tr:nth-of-type(9) td:nth-of-type(1){ background-color: #432F00;}
+tr:nth-of-type(9) td:nth-of-type(2){ background-color: #8B7300;}
+tr:nth-of-type(9) td:nth-of-type(3){ background-color: #F3BF3F;}
+tr:nth-of-type(9) td:nth-of-type(4){ background-color: #FFE7A3;}
+tr:nth-of-type(10) td:nth-of-type(1){ background-color: #004700;}
+tr:nth-of-type(10) td:nth-of-type(2){ background-color: #009700;}
+tr:nth-of-type(10) td:nth-of-type(3){ background-color: #83D313;}
+tr:nth-of-type(10) td:nth-of-type(4){ background-color: #E3FFA3;}
+tr:nth-of-type(11) td:nth-of-type(1){ background-color: #005100;}
+tr:nth-of-type(11) td:nth-of-type(2){ background-color: #00AB00;}
+tr:nth-of-type(11) td:nth-of-type(3){ background-color: #4FDF4B;}
+tr:nth-of-type(11) td:nth-of-type(4){ background-color: #ABF3BF;}
+tr:nth-of-type(12) td:nth-of-type(1){ background-color: #003F17;}
+tr:nth-of-type(12) td:nth-of-type(2){ background-color: #00933B;}
+tr:nth-of-type(12) td:nth-of-type(3){ background-color: #58F898;}
+tr:nth-of-type(12) td:nth-of-type(4){ background-color: #B3FFCF;}
+tr:nth-of-type(13) td:nth-of-type(1){ background-color: #1B3F5F;}
+tr:nth-of-type(13) td:nth-of-type(2){ background-color: #00838B;}
+tr:nth-of-type(13) td:nth-of-type(3){ background-color: #00EBDB;}
+tr:nth-of-type(13) td:nth-of-type(4){ background-color: #9FFFF3;}
+tr td:nth-of-type(1){ color: white;}
+tr td:nth-of-type(2){ color: white;}
+td {
+	width: 100px;
+	text-align: center;
+	padding: 20px;
+}
+caption {
+	font-size: 2em;
+	padding: 20px;
+}
+div {
+	width: 480px;
+	margin: 20px auto;
+}
 	</style>
 	<script>
+function change( cls )
+{ 
+	var elements = document.getElementsByClassName( cls );
+	var i;
+	for ( i = 0 ; i < elements.length ; ++i )
+	{
+		if ( elements[ i ].style.display == "none" ) {
+			elements[ i ].style.display = "inline";
+		} else {
+			elements[ i ].style.display = "none";
+		}
+	}
+}
+function display( cls, val )
+{ 
+	var elements = document.getElementsByClassName( cls );
+	var i;
+	for ( i = 0 ; i < elements.length ; ++i )
+	{
+		elements[ i ].style.display = val;
+	}
+}
+function modechange()
+{ 
+	change( "cn" );
+	change( "cd" )
+}
+window.onload = function init()
+{
+	var del = "name";
+	display( "cn", "none" );
+	display( "cd", "inline" );
+}
 	</script>
 </head>
 <body>
 
-<<table>
-	<caption>table title and/or explanatory text</caption>
+<div>
+	<h1>FCBitmap</h1>
+	<p>FCBitmap is image by Family Compuetr color.</p>
+	<p>Android bitmap object &lt;=&gt; String(A-Z,a-z,_).</p>
+	<p>GitHub : <a href="https://github.com/HirokiMiyaoka/FCBitmap">FCBitmap</a></p>
+</div>
+
+<table>
+	<caption>Color table <a href="javascript:void(0);" onclick="modechange();" id="lang"><b class="cd">Code</b><b class="cn">Char</b></a></caption>
 	<tbody>
-		<tr><td>000000</td><td>757575</td><td>BCBCBC</td><td>FFFFFF</td></tr>
-		<tr><td>271B8F</td><td>0073EF</td><td>3FBFFF</td><td>ABE7FF</td></tr>
-		<tr><td>0000AB</td><td>233BEF</td><td>5F73FF</td><td>C7D7FF</td></tr>
-		<tr><td>47009F</td><td>8300F3</td><td>A78BFD</td><td>D7CBFF</td></tr>
-		<tr><td>8F0077</td><td>BF00BF</td><td>F77BFF</td><td>FFC7FF</td></tr>
-		<tr><td>AB0013</td><td>E7005B</td><td>FF77B7</td><td>FFC7DB</td></tr>
-		<tr><td>A70000</td><td>DB2B00</td><td>FF7763</td><td>FFBFB3</td></tr>
-		<tr><td>7F0B00</td><td>CB4F0F</td><td>FF9B3B</td><td>FFDBAB</td></tr>
-		<tr><td>432F00</td><td>8B7300</td><td>F3BF3F</td><td>FFE7A3</td></tr>
-		<tr><td>004700</td><td>009700</td><td>83D313</td><td>E3FFA3</td></tr>
-		<tr><td>005100</td><td>00AB00</td><td>4FDF4B</td><td>ABF3BF</td></tr>
-		<tr><td>003F17</td><td>00933B</td><td>58F898</td><td>B3FFCF</td></tr>
-		<tr><td>1B3F5F</td><td>00838B</td><td>00EBDB</td><td>9FFFF3</td></tr>
+		<tr>
+			<td><b class="cd">000000</b><b class="cn">A</b></td>
+			<td><b class="cd">757575</b><b class="cn">B</b></td>
+			<td><b class="cd">BCBCBC</b><b class="cn">C</b></td>
+			<td><b class="cd">FFFFFF</b><b class="cn">D</b></td>
+		</tr>
+		<tr>
+			<td><b class="cd">271B8F</b><b class="cn">E</b></td>
+			<td><b class="cd">0073EF</b><b class="cn">F</b></td>
+			<td><b class="cd">3FBFFF</b><b class="cn">G</b></td>
+			<td><b class="cd">ABE7FF</b><b class="cn">H</b></td>
+		</tr>
+		<tr>
+			<td><b class="cd">0000AB</b><b class="cn">I</b></td>
+			<td><b class="cd">233BEF</b><b class="cn">J</b></td>
+			<td><b class="cd">5F73FF</b><b class="cn">K</b></td>
+			<td><b class="cd">C7D7FF</b><b class="cn">L</b></td>
+		</tr>
+		<tr>
+			<td><b class="cd">47009F</b><b class="cn">M</b></td>
+			<td><b class="cd">8300F3</b><b class="cn">N</b></td>
+			<td><b class="cd">A78BFD</b><b class="cn">O</b></td>
+			<td><b class="cd">D7CBFF</b><b class="cn">P</b></td>
+		</tr>
+		<tr>
+			<td><b class="cd">8F0077</b><b class="cn">Q</b></td>
+			<td><b class="cd">BF00BF</b><b class="cn">R</b></td>
+			<td><b class="cd">F77BFF</b><b class="cn">S</b></td>
+			<td><b class="cd">FFC7FF</b><b class="cn">T</b></td>
+		</tr>
+		<tr>
+			<td><b class="cd">AB0013</b><b class="cn">U</b></td>
+			<td><b class="cd">E7005B</b><b class="cn">V</b></td>
+			<td><b class="cd">FF77B7</b><b class="cn">W</b></td>
+			<td><b class="cd">FFC7DB</b><b class="cn">X</b></td>
+		</tr>
+		<tr>
+			<td><b class="cd">A70000</b><b class="cn">Y</b></td>
+			<td><b class="cd">DB2B00</b><b class="cn">Z</b></td>
+			<td><b class="cd">FF7763</b><b class="cn">a</b></td>
+			<td><b class="cd">FFBFB3</b><b class="cn">b</b></td>
+		</tr>
+		<tr>
+			<td><b class="cd">7F0B00</b><b class="cn">c</b></td>
+			<td><b class="cd">CB4F0F</b><b class="cn">d</b></td>
+			<td><b class="cd">FF9B3B</b><b class="cn">e</b></td>
+			<td><b class="cd">FFDBAB</b><b class="cn">f</b></td>
+		</tr>
+		<tr>
+			<td><b class="cd">432F00</b><b class="cn">g</b></td>
+			<td><b class="cd">8B7300</b><b class="cn">h</b></td>
+			<td><b class="cd">F3BF3F</b><b class="cn">i</b></td>
+			<td><b class="cd">FFE7A3</b><b class="cn">j</b></td>
+		</tr>
+		<tr>
+			<td><b class="cd">004700</b><b class="cn">k</b></td>
+			<td><b class="cd">009700</b><b class="cn">l</b></td>
+			<td><b class="cd">83D313</b><b class="cn">m</b></td>
+			<td><b class="cd">E3FFA3</b><b class="cn">n</b></td>
+		</tr>
+		<tr>
+			<td><b class="cd">005100</b><b class="cn">o</b></td>
+			<td><b class="cd">00AB00</b><b class="cn">p</b></td>
+			<td><b class="cd">4FDF4B</b><b class="cn">q</b></td>
+			<td><b class="cd">ABF3BF</b><b class="cn">r</b></td>
+		</tr>
+		<tr>
+			<td><b class="cd">003F17</b><b class="cn">s</b></td>
+			<td><b class="cd">00933B</b><b class="cn">t</b></td>
+			<td><b class="cd">58F898</b><b class="cn">u</b></td>
+			<td><b class="cd">B3FFCF</b><b class="cn">v</b></td>
+		</tr>
+		<tr>
+			<td><b class="cd">1B3F5F</b><b class="cn">w</b></td>
+			<td><b class="cd">00838B</b><b class="cn">x</b></td>
+			<td><b class="cd">00EBDB</b><b class="cn">y</b></td>
+			<td><b class="cd">9FFFF3</b><b class="cn">z</b></td>
+		</tr>
+		<tr>
+			<td colspan="4" style="color: black;">Transparent color is '_'.</td>
+		</tr>
 	</tbody>
 </table>
 
